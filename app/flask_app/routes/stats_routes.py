@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, render_template, request
 import app.flask_app.service.stats_service as stats_service
+
 stats_blueprint = Blueprint('stats_routes', __name__)
 
 @stats_blueprint.route('/yearly/<country>')
