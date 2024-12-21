@@ -19,7 +19,7 @@ def get_groups_with_same_targets() -> List[dict]:
 def get_groups_with_influence_info() -> List[dict]:
     query = """
             match  (g:Group) -[rel:ATTACKED]- (c:Country)
-            return  g.name as group, count(DISTINCT c) as country_count, count(DISTINCT rel.target) as target_count, count(DISTINCT rel.type) as type_count
+            return  g.name as group, count(DISTINCT c) as country_count, count(DISTINCT rel.target) as target_count, count(DISTINCT rel.type) as type_count, collect(DISTINCT c) as countries
             """
     return data_query(query=query)
 
